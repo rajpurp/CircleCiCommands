@@ -5,22 +5,12 @@ commands:
     steps:
       - run: echo ${CIRCLE_WORKFLOW_ID}
 
-  sayhello:
-    description: "A very simple command for demonstration purposes"
-    parameters:
-      to:
-        type: string
-        default: "Hello World"
-      steps:
-        - run: echo << parameters.to >>
-
 jobs:
   my_job:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
-      - sayhello
 
 workflows:
   my_workflow:
